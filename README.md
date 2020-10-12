@@ -6,17 +6,18 @@ Na riešenie zadania využite hotove kryptograficke API, (nepoužívať vlastné
 
 Python 3.7.9
 
-aes==1.0.0
-certifi==2020.6.20
-cffi==1.14.3
-chardet==3.0.4
-idna==2.10
-Naked==0.1.31
-pycparser==2.20
-pycryptodome==3.9.8
+pip install -r requirements.txt
+python encrypt.py -h
+python decrypt.py -h
 
-shellescape==3.8.1
-urllib3==1.25.10
+MACOS : mkfile -n 1953125b 1GB_file
+LINUX : fallocate -l 1000000000 1GB_file
+Windows : fsutil file createnew  1GB_file 1000000000
+
+python encrypt.py -i 1GB_file -o secret
+python decrypt.py -i secret -k key.bin
+
+python encrypt.py -i text -o secret
+python decrypt.py -i secret -k key.bin
 
 
-fallocate -l 1000000000 1GB_file       
