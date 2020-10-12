@@ -3,6 +3,7 @@ import sys
 
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
+from datetime import datetime
 
 
 def decrypt(key, secret):
@@ -40,8 +41,14 @@ if __name__ == '__main__':
     with open('secret', mode='rb') as file:
         secret = file.read()
 
+
+    start = datetime.now()
+
     msg = decrypt(key, secret)
-    print(str(msg,encoding='utf-8'))
+
+    print(datetime.now() - start)
+
+
     f = open('msg.txt', "w")
     f.write(str(msg,encoding='utf-8'))
     f.close()

@@ -4,6 +4,7 @@ import sys
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.Util import Counter
+from datetime import datetime
 
 
 def generate_key():
@@ -50,5 +51,11 @@ if __name__ == '__main__':
     with open(inputf, mode='rb') as file:
         fileContent = file.read()
 
+
+    start = datetime.now()
+
     secret = encrypt(key, fileContent)
+
+    print(datetime.now() - start)
+
 
